@@ -30,22 +30,23 @@ const getCharacterByName = async (name) => {
 
     const matchArr = [];
     const resultApiDB = await getAllCharacters();
-    
-    const nameModify = await resultApiDB?.map((name) => name.name.toLowerCase().replace(/[^\w\s]/gi, ''))
-    const nameFind = await nameModify.filter((word) => {
-        const wordSplit = word.split(" ");
-        console.log("soy ek wordo split", wordSplit);
-        c
-        // const lastFind = wordSplit.filter((nameWord) => {
-            
-        // })
-    })
-    console.log("soy el namefind", nameFind);
+
+    const nameModify = await resultApiDB?.map((name, index) => ({
+        index: index,
+        name: name.name.toLowerCase().replace(/[^\w\s]/gi, ''),
+    }))
+    const nameFind = await nameModify?.filter((word) => word.name.includes(name.toLowerCase()))
+    nameFind.forEach(indice => {
+        matchArr.push(resultApiDB[indice.index])
+    });
+    return matchArr;
 }
 
 
+  
 
 module.exports = {
     getAllCharacters,
     getCharacterByName
 }
+
