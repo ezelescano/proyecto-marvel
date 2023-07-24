@@ -3,7 +3,8 @@ const { Router } = require("express");
 const { getAllCharacHandler,
     getCharachterByIDHandler,
     postCharacterHandler,
-    updateCharacterHandler
+    updateCharacterHandler,
+    deleteCharacterHandler
 } = require("../handlers/characterHandler");
 
 const characterRouter = Router();
@@ -14,7 +15,9 @@ characterRouter.get("/:id", getCharachterByIDHandler);
 
 characterRouter.post("/", postCharacterHandler);
 
-characterRouter.put("/update/:id", updateCharacterHandler)
+characterRouter.put("/update/:id", updateCharacterHandler);
+
+characterRouter.put("/delete/:id", deleteCharacterHandler);
 
 
 

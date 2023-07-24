@@ -75,15 +75,26 @@ const createHero = async (name, description, image) => {
             return "Heroe Creado exitosamente!!";
         } catch (error) {
             console.error("Error al crear el héroe:", error.message);
-            return "Hubo un error al crear el héroe. Por favor, inténtelo nuevamente.";
+            return "Hubo un error al crear el héroe. Por favor, inténtelo nuevamente";
         }
     }
+}
+
+// ************************************** DELETE HERO *********************************//
+
+const deleteHero = async (id) => {
+    await Marvelhero.destroy({
+        where: {
+            id: id 
+        }
+    });
 }
 
 module.exports = {
     getAllCharacters,
     getCharacterByName,
     getCharachterByID,
-    createHero
+    createHero,
+    deleteHero
 }
 

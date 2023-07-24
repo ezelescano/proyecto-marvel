@@ -1,4 +1,4 @@
-const { getCharacterByName, getAllCharacters, getCharachterByID, createHero } = require("../controllers/characterController");
+const { getCharacterByName, getAllCharacters, getCharachterByID, createHero, deleteHero } = require("../controllers/characterController");
 
 const getAllCharacHandler = async (req, res) => {
     const { name } = req.query;
@@ -43,13 +43,27 @@ const postCharacterHandler = async (req, res) => {
     
 }
 
+
+const deleteCharacterHandler = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await deleteHero(id);
+        res.status(200).send("Heroe eliminado");
+    } catch (error) {
+        res.status(404).json({ error: "No se puedo eliminar al Heroe" });
+    }
+}
+
+
 const updateCharacterHandler = (req, res) => {
     res.send("NIY: ESTA RUTA HACE LA ACTUALIZACION")
 }
+
 
 module.exports = {
     getAllCharacHandler,
     getCharachterByIDHandler,
     postCharacterHandler,
-    updateCharacterHandler
+    updateCharacterHandler,
+    deleteCharacterHandler
 };
