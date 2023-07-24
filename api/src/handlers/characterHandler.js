@@ -1,4 +1,4 @@
-const { getCharacterByName, getAllCharacters, getCharachterByID } = require("../controllers/characterController");
+const { getCharacterByName, getAllCharacters, getCharachterByID, createHero } = require("../controllers/characterController");
 
 const getAllCharacHandler = async (req, res) => {
     const { name } = req.query;
@@ -22,7 +22,7 @@ const getAllCharacHandler = async (req, res) => {
 
 const getCharachterByIDHandler = async (req, res) => {
 
-    const { id } = req.params;    
+    const { id } = req.params;
     try {
         const source = isNaN(id) ? "Base de Datos" : "Api";
         const result = await getCharachterByID(id, source);
@@ -32,8 +32,15 @@ const getCharachterByIDHandler = async (req, res) => {
     }
 }
 
-const postCharacterHandler = (req, res) => {
-    res.send("NIY: ESTA RUTA CREA UN HEROE");
+const postCharacterHandler = async (req, res) => {
+    const { name, description, image } = req.body;
+    try {
+        const result = await createHero(name, description, image);
+        res.status(201).json(result);
+    } catch (error) {
+        res.status(400).json({error: "Los datos no son correctos"})
+    }
+    
 }
 
 const updateCharacterHandler = (req, res) => {
