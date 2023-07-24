@@ -42,11 +42,27 @@ const getCharacterByName = async (name) => {
     return matchArr;
 }
 
+// ************************* GET BY ID ***********************************//
+
+
+const getCharachterByID = async (id, source) => {
+    console.log("soy el id", id);
+    if(source === "Base de Datos") {
+        const result = await Marvelhero.findByPk(id);
+        return result;
+    } else {
+        const apiData = (await axios.get(apiUrl)).data.data.results; 
+        const result2 =  await apiData?.find((hero) => hero.id == id);
+        return result2;
+    }
+
+}
 
   
 
 module.exports = {
     getAllCharacters,
-    getCharacterByName
+    getCharacterByName,
+    getCharachterByID
 }
 

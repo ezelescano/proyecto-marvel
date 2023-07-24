@@ -1,4 +1,4 @@
-const { getCharacterByName, getAllCharacters } = require("../controllers/characterController");
+const { getCharacterByName, getAllCharacters, getCharachterByID } = require("../controllers/characterController");
 
 const getAllCharacHandler = async (req, res) => {
     const { name } = req.query;
@@ -7,21 +7,29 @@ const getAllCharacHandler = async (req, res) => {
             const result = await getCharacterByName(name);
             res.status(200).json(result);
         } catch (error) {
-            res.status(404).json({error: "No se encontró el nombre"})
+            res.status(404).json({ error: "No se encontró el nombre" })
         }
-    } else{
+    } else {
         try {
             const result = await getAllCharacters();
             res.status(200).json(result);
         } catch (error) {
-            res.status(503).json({error: "El servicio no está disponible en este momento"});
+            res.status(503).json({ error: "El servicio no está disponible en este momento" });
         }
     }
 }
 
 
-const getCharachterByIDHandler = (req, res) => {
-    res.send("NIY: ESTA RUTA BUSCA POR ID");
+const getCharachterByIDHandler = async (req, res) => {
+
+    const { id } = req.params;    
+    try {
+        const source = isNaN(id) ? "Base de Datos" : "Api";
+        const result = await getCharachterByID(id, source);
+        res.status(200).json(result);
+    } catch (error) {
+        res.status(404).json({ error: "Personaje no encontrado" });
+    }
 }
 
 const postCharacterHandler = (req, res) => {
