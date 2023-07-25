@@ -1,4 +1,4 @@
-const { getCharacterByName, getAllCharacters, getCharachterByID, createHero, deleteHero } = require("../controllers/characterController");
+const { getCharacterByName, getAllCharacters, getCharachterByID, createHero, deleteHero, updateCharacter } = require("../controllers/characterController");
 
 const getAllCharacHandler = async (req, res) => {
     const { name } = req.query;
@@ -55,8 +55,13 @@ const deleteCharacterHandler = async (req, res) => {
 }
 
 
-const updateCharacterHandler = (req, res) => {
-    res.send("NIY: ESTA RUTA HACE LA ACTUALIZACION")
+const updateCharacterHandler = async (req, res) => {
+   try {
+    const result = await updateCharacter(req);
+    res.status(200).json(result);
+   } catch (error) {
+    res.status(400).json({error: "No se pudo realizar la actualizacion"})
+   }
 }
 
 

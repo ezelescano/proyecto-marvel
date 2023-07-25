@@ -90,11 +90,25 @@ const deleteHero = async (id) => {
     });
 }
 
+// ************************************ UPDATE CHARACTER *******************************//
+
+const updateCharacter = async (req) => {
+   const {id} = req.params;
+   const {body} = req;
+   console.log("soy el body", body);
+   await Marvelhero.update(body, {
+    where: { id: id}
+   })
+   return "Heroe actualizado!!"
+}
+
+
 module.exports = {
     getAllCharacters,
     getCharacterByName,
     getCharachterByID,
     createHero,
-    deleteHero
+    deleteHero,
+    updateCharacter
 }
 
