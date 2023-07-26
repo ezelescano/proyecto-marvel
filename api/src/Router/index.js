@@ -5,6 +5,7 @@ const userRouter = require("./userRouter");
 
 const mainRouter = Router();
 
+
 mainRouter.use("/characters", characterRouter);
 
 mainRouter.use("/create", createRouter);
