@@ -1,12 +1,14 @@
 const axios = require("axios");
 const { Marvelhero } = require("../db")
+require('dotenv').config();
 
-const apiUrl = "https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=30d5c4cb7910a4e40ae7af26c429f57b&hash=566846e84268f76384e0690804c20718";
+const {API_URL} = process.env;
+
 
 // *****************GET ALL CHARACTERS**********************************************//
 
 const getApiCharacters = async () => {
-    const apiData = (await axios.get(apiUrl)).data;
+    const apiData = (await axios.get(API_URL)).data;
     const apiFiter = apiData?.data.results.map(hero => ({
         id: hero.id,
         name: hero.name,
@@ -51,7 +53,7 @@ const getCharachterByID = async (id, source) => {
         const result = await Marvelhero.findByPk(id);
         return result;
     } else {
-        const apiData = (await axios.get(apiUrl)).data.data.results;
+        const apiData = (await axios.get(API_URL)).data.data.results;
         const result2 = await apiData?.find((hero) => hero.id == id);
         return result2;
     }
