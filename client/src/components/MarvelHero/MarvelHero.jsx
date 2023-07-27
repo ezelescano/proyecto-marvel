@@ -4,8 +4,10 @@ import style from "../MarvelHero/MarvelHero.module.css"
 const MarvelHero = (props) => {
     return (
         <div className={style.marvelhero}>
-            <img src={props.image} alt={props.name} />
-            <Link to={`/detail/${props.id}`}><h2>{props.name}</h2></Link>
+            <Link to={`/detail/${props.id}`}>
+                <img src={props.image} alt={props.name} />
+                <h2>{props.name}</h2>
+            </Link>
         </div>
     )
 }

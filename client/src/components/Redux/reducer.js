@@ -1,7 +1,8 @@
-import { GET_ALL_CHARACTERS } from "./actions-types";
+import { GET_ALL_CHARACTERS, SEARCH_BY_NAME } from "./actions-types";
 
 const initialState = {
-    marvelHeros: []
+    marvelHeros: [], 
+    getName: []
 };
 
 
@@ -12,6 +13,11 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 marvelHeros: action.payload
             }
+            case SEARCH_BY_NAME:
+                return {
+                    ...state,
+                    getName: action.payload
+                }
         default:
             return {
                 ...state
