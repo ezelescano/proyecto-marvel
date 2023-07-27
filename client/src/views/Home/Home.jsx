@@ -1,7 +1,9 @@
+import MarvelHeroConteiner from "../../components/MarvelHeroContainer/MarvelHeroConteiner";
+
 const Home = () => {
     return(
         <div>
-            HOLA SOY EL HOME
+           <MarvelHeroConteiner/>
         </div>
     )
 }
