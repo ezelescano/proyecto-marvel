@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_ALL_CHARACTERS, RESET, SEARCH_BY_NAME } from "./actions-types";
+import { GET_ALL_CHARACTERS, GET_BY_ID, RESET, SEARCH_BY_NAME } from "./actions-types";
 
 
 
@@ -9,7 +9,7 @@ export const getAllCharacters = () => {
     return async (dispatch) => {
         try {
             const result = await axios.get("http://localhost:3001/characters")
-            dispatch({type: GET_ALL_CHARACTERS, payload: result.data})
+            dispatch({ type: GET_ALL_CHARACTERS, payload: result.data })
         } catch (error) {
             console.log("error", error.message);
         }
@@ -22,7 +22,7 @@ export const getByName = (name) => {
     return async (dispatch) => {
         try {
             const result = await axios.get(`http://localhost:3001/characters?name=${name}`)
-            dispatch({type: SEARCH_BY_NAME, payload: result.data})
+            dispatch({ type: SEARCH_BY_NAME, payload: result.data })
         } catch (error) {
             console.log("error", error.message);
         }
@@ -34,6 +34,21 @@ export const getByName = (name) => {
 
 export const reset = () => {
     return async (dispatch) => {
-        dispatch({type: RESET, payload: []})
+        dispatch({ type: RESET, payload: [] })
+    }
+}
+
+
+// ******************** get By ID ********************************//
+
+export const getByID = (id) => {
+    console.log("soy el id del action", id);
+    return async (dispatch) => {
+        try {
+            const result = await axios.get(`http://localhost:3001/characters/${id}`)
+            dispatch({ type: GET_BY_ID, payload: result.data })
+        } catch (error) {
+            console.log("error", error.message);
+        }
     }
 }
