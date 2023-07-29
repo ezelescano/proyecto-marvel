@@ -5,7 +5,7 @@ import { getAllCharacters } from "../Redux/actions";
 import style from "../MarvelHeroContainer/MarvelHeroConteiner.module.css"
 
 const MarvelHeroConteiner = () => {
-   const {marvelHeros, getName} = useSelector((state) => state);
+   const {marvelHeros, heros, getName} = useSelector((state) => state);
 
    const dispatch = useDispatch();
 
@@ -19,6 +19,7 @@ const MarvelHeroConteiner = () => {
         <div className={style.marvelheroconteiner}>
             {result?.map((hero) => {
                 return <MarvelHero
+                key={hero.id}
                 id= {hero.id}
                 image={hero.image}
                 name= {hero.name}

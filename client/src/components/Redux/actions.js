@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_ALL_CHARACTERS, SEARCH_BY_NAME } from "./actions-types";
+import { GET_ALL_CHARACTERS, RESET, SEARCH_BY_NAME } from "./actions-types";
 
 
 
@@ -26,5 +26,14 @@ export const getByName = (name) => {
         } catch (error) {
             console.log("error", error.message);
         }
+    }
+}
+
+
+// ******************** reset ****************************************//
+
+export const reset = () => {
+    return async (dispatch) => {
+        dispatch({type: RESET, payload: []})
     }
 }
