@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_ALL_CHARACTERS, GET_BY_ID, RESET, SEARCH_BY_NAME } from "./actions-types";
+import { CREATE_HERO, GET_ALL_CHARACTERS, GET_BY_ID, RESET, SEARCH_BY_NAME } from "./actions-types";
 
 
 
@@ -49,6 +49,21 @@ export const getByID = (id) => {
             dispatch({ type: GET_BY_ID, payload: result.data })
         } catch (error) {
             console.log("error", error.message);
+        }
+    }
+} 
+
+
+// ********************* Create Hero *******************************//
+
+export const createHero = (input) => {
+    return async (dispatch) => {
+        try {
+            dispatch({ type: CREATE_HERO, payload: true})
+            await axios.post("http://localhost:3001/characters", input)
+        } catch (error) {
+          console.log(error);
+          dispatch({type: CREATE_HERO, payload: false})  
         }
     }
 }

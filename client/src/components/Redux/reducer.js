@@ -1,10 +1,11 @@
-import { GET_ALL_CHARACTERS, GET_BY_ID, RESET, SEARCH_BY_NAME } from "./actions-types";
+import { CREATE_HERO, GET_ALL_CHARACTERS, GET_BY_ID, RESET, SEARCH_BY_NAME } from "./actions-types";
 
 const initialState = {
     marvelHeros: [],
     getName: [],
     heros: [],
-    detail: {}
+    detail: {},
+    createHero: []
 };
 
 
@@ -34,9 +35,16 @@ const rootReducer = (state = initialState, action) => {
                 detail: action.payload
             }
         }
+        case CREATE_HERO: {
+            return {
+                ...state,
+
+            }
+        }
         default:
             return {
-                ...state
+                ...state,
+                createHero: action.payload
             }
     }
 }
