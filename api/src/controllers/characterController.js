@@ -19,8 +19,8 @@ const getApiCharacters = async () => {
 }
 
 const getAllCharacters = async () => {
-    const charactersDB = await Marvelhero.findAll({
-        attributes: ["name", "description", "image"]
+    const charactersDB = await Marvelhero?.findAll({
+        attributes: ["id", "name", "description", "image"]
     });
     const apiResult = await getApiCharacters();
     return charactersDB ? [...charactersDB, ...apiResult] : apiResult;
@@ -48,9 +48,11 @@ const getCharacterByName = async (name) => {
 
 
 const getCharachterByID = async (id, source) => {
-    console.log("soy el id", id);
+    console.log("soy el id del controller", id);
+
     if (source === "Base de Datos") {
-        const result = await Marvelhero.findByPk(id);
+        const result = await Marvelhero.findByPk (id);
+
         return result;
     } else {
         const apiData = (await axios.get(API_URL)).data.data.results;
