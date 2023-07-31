@@ -1,11 +1,12 @@
-import { CREATE_HERO, GET_ALL_CHARACTERS, GET_BY_ID, RESET, SEARCH_BY_NAME } from "./actions-types";
+import { CHANGE_PAGE, CREATE_HERO, GET_ALL_CHARACTERS, GET_BY_ID, RESET, SEARCH_BY_NAME } from "./actions-types";
 
 const initialState = {
     marvelHeros: [],
     getName: [],
     heros: [],
     detail: {},
-    createHero: []
+    createHero: [],
+    paginationPage: 1
 };
 
 
@@ -39,6 +40,12 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
 
+            }
+        }
+        case CHANGE_PAGE : {
+            return {
+                ...state,
+                paginationPage: action.payload
             }
         }
         default:

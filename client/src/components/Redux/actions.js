@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CREATE_HERO, GET_ALL_CHARACTERS, GET_BY_ID, RESET, SEARCH_BY_NAME } from "./actions-types";
+import { CHANGE_PAGE, CREATE_HERO, GET_ALL_CHARACTERS, GET_BY_ID, RESET, SEARCH_BY_NAME } from "./actions-types";
 
 
 
@@ -65,5 +65,14 @@ export const createHero = (input) => {
           console.log(error);
           dispatch({type: CREATE_HERO, payload: false})  
         }
+    }
+}
+
+
+// ****************************** CHANGE_PAGE **************************//
+
+export const changePage = (num) => {
+    return async (dispatch) => {
+        dispatch({type: CHANGE_PAGE, payload: num})
     }
 }
