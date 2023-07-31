@@ -17,12 +17,12 @@ const Form = () => {
     const inputHandler = (event) => {
         setInput({
             ...input,
-            [event.target.name]: event.target.value
+            [event?.target?.name]: event?.target?.value
         });
         setError(
             validate({
                 ...input,
-                [input.target.name] : input.target.value
+                [input?.target?.name] : input?.target?.value
             })
         )
     }

@@ -17,7 +17,7 @@ const Detail = () => {
 
     return (
         <div>
-            <img src={`${detail?.thumbnail.path}.${detail?.thumbnail.extension}`} alt={detail?.name} />
+            <img src={`${detail?.thumbnail?.path}.${detail?.thumbnail?.extension}`} alt={detail?.name} />
             <p>Nombre: {detail?.name}</p>
             <p>Descripcion: {detail?.description}</p>
         </div>
