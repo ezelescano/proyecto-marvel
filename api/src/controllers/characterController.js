@@ -48,7 +48,7 @@ const getCharacterByName = async (name) => {
 
 
 const getCharachterByID = async (id, source) => {
-    console.log("soy el id del controller", id);
+
 
     if (source === "Base de Datos") {
         const result = await Marvelhero.findByPk (id);

@@ -7,9 +7,9 @@ import { getByID } from "../../components/Redux/actions";
 
 const Detail = () => {
     const { detail } = useSelector((state) => state)
-    console.log("sou el detail del modulo", detail);
+   
     const { id } = useParams();
-    console.log("soy el id del pparams", id);
+   
     const dispatch = useDispatch();
 
     useEffect(() => {

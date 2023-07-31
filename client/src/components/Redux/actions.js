@@ -42,7 +42,7 @@ export const reset = () => {
 // ******************** get By ID ********************************//
 
 export const getByID = (id) => {
-    console.log("soy el id del action", id);
+ 
     return async (dispatch) => {
         try {
             const result = await axios.get(`http://localhost:3001/characters/${id}`)

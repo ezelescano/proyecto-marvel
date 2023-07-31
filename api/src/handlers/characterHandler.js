@@ -23,7 +23,7 @@ const getAllCharacHandler = async (req, res) => {
 const getCharachterByIDHandler = async (req, res) => {
 
     const { id } = req?.params;
-    console.log("siy el id del handler", id);
+   
     try {
         const source = isNaN(id) ? "Base de Datos" : "Api";
         const result = await getCharachterByID(id, source);
