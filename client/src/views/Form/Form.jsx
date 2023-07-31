@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch} from "react-redux";
 import { createHero } from "../../components/Redux/actions";
+import validate from "./validate";
 
 
 
@@ -11,13 +12,21 @@ const Form = () => {
         image: "",
         description: ""
     })
+    const [error, setError] = useState({name: ''})
 
     const inputHandler = (event) => {
         setInput({
             ...input,
             [event.target.name]: event.target.value
-        })
+        });
+        setError(
+            validate({
+                ...input,
+                [input.target.name] : input.target.value
+            })
+        )
     }
+
 
     const createSubmit = (event) => {
         event.preventDefault();
