@@ -75,10 +75,9 @@ const createHero = async (name, description, image) => {
                 description,
                 image
             });
-            console.log("spy el newHero", newHero);
+          console.log("spy el newHero", newHero);
             return "Heroe Creado exitosamente!!";
         } catch (error) {
-            console.error("Error al crear el héroe:", error.message);
             return "Hubo un error al crear el héroe. Por favor, inténtelo nuevamente";
         }
     }

@@ -12,6 +12,7 @@ const sequelize = new Sequelize(
 userModel(sequelize);
 marvelHeroModels(sequelize);
 
-const { Marvelhero } = sequelize.models;
+const { Marvelhero, User } = sequelize.models;
+
  
 module.exports = { sequelize, ...sequelize.models };

@@ -1,33 +1,43 @@
 import NavBar from './components/NavBar/NavBar';
 import { Detail, Form, Home, Landing, About } from './views';
 import { Route, Routes, useLocation } from 'react-router-dom';
+import { Auth0Provider } from '@auth0/auth0-react';
+
 function App() {
   const location = useLocation();
+
   return (
-    <div>
 
-      {location.pathname !== "/" && <NavBar />}
-      <Routes>
-        <Route exact path='/' element={<Landing />} />
-      </Routes>
+    <Auth0Provider
+      domain="dev-xehpsahelqjudav0.us.auth0.com"
+      clientId="zzCbQZaV49AKdMv3F47yuGW8HKoQXqjM"
+      redirectUri="http://localhost:3000/home"
+    >
+      <div>
 
-      <Routes>
-        <Route path='/home' element={<Home />} />
-      </Routes>
+        {location.pathname !== "/" && <NavBar />}
+        <Routes>
+          <Route exact path='/' element={<Landing />} />
+        </Routes>
 
-      <Routes>
-        <Route path='/detail/:id' element={<Detail />} />
-      </Routes>
+        <Routes>
+          <Route path='/home' element={<Home />} />
+        </Routes>
 
-      <Routes>
-        <Route path='/form' element={<Form />} />
-      </Routes>
+        <Routes>
+          <Route path='/detail/:id' element={<Detail />} />
+        </Routes>
 
-      <Routes>
-        <Route path='/about' element={<About />} />
-      </Routes>
+        <Routes>
+          <Route path='/form' element={<Form />} />
+        </Routes>
 
-    </div>
+        <Routes>
+          <Route path='/about' element={<About />} />
+        </Routes>
+
+      </div>
+    </Auth0Provider>
   );
 }
 

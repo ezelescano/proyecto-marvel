@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 const Landing = () => {
-    return(
-        <div>
 
-        <Link to={"/home"}><button>INGRESAR</button></Link>
-        </div>
-
+    const { loginWithRedirect } = useAuth0();
+    return (
+        <button onClick={() => loginWithRedirect()}>Log In</button>
     )
 }
 
