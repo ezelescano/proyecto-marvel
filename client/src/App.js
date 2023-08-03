@@ -2,6 +2,8 @@ import NavBar from './components/NavBar/NavBar';
 import { Detail, Form, Home, Landing, About } from './views';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { Auth0Provider } from '@auth0/auth0-react';
+import PrivateRoute from './components/Private/PrivateRoute';
+
 
 function App() {
   const location = useLocation();
@@ -21,19 +23,19 @@ function App() {
         </Routes>
 
         <Routes>
-          <Route path='/home' element={<Home />} />
+          <PrivateRoute path='/home' element={<Home />} />
         </Routes>
 
         <Routes>
-          <Route path='/detail/:id' element={<Detail />} />
+          <PrivateRoute path='/detail/:id' element={<Detail />} />
         </Routes>
 
         <Routes>
-          <Route path='/form' element={<Form />} />
+          <PrivateRoute path='/form' element={<Form />} />
         </Routes>
 
         <Routes>
-          <Route path='/about' element={<About />} />
+          <PrivateRoute path='/about' element={<About />} />
         </Routes>
 
       </div>
