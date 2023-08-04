@@ -1,13 +1,13 @@
 import NavBar from './components/NavBar/NavBar';
 import { Detail, Form, Home, Landing, About } from './views';
-import { Route, Routes, useLocation } from 'react-router-dom';
-import { Auth0Provider } from '@auth0/auth0-react';
-import PrivateRoute from './components/Private/PrivateRoute';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { Auth0Provider, useAuth0 } from '@auth0/auth0-react';
+
 
 
 function App() {
   const location = useLocation();
-
+  const { isAuthenticated } = useAuth0();
   return (
 
     <Auth0Provider
@@ -23,19 +23,20 @@ function App() {
         </Routes>
 
         <Routes>
-          <PrivateRoute path='/home' element={<Home />} />
+        {/* <Route path='/home' element={<Home />}/> */}
+          <Route path='/home' component={ isAuthenticated ? <Home /> : <Navigate to="/" replace /> } />
         </Routes>
 
         <Routes>
-          <PrivateRoute path='/detail/:id' element={<Detail />} />
+          <Route path='/detail/:id' element={<Detail />} />
         </Routes>
 
         <Routes>
-          <PrivateRoute path='/form' element={<Form />} />
+          <Route path='/form' element={<Form />} />
         </Routes>
 
         <Routes>
-          <PrivateRoute path='/about' element={<About />} />
+          <Route path='/about' element={<About />} />
         </Routes>
 
       </div>
