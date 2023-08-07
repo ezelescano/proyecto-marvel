@@ -8,6 +8,10 @@ import { Auth0Provider, useAuth0 } from '@auth0/auth0-react';
 function App() {
   const location = useLocation();
   const { isAuthenticated } = useAuth0();
+
+ 
+
+    console.log("soy isAuth0", isAuthenticated);
   return (
 
     <Auth0Provider
@@ -24,7 +28,9 @@ function App() {
 
         <Routes>
         {/* <Route path='/home' element={<Home />}/> */}
-          <Route path='/home' component={ isAuthenticated ? <Home /> : <Navigate to="/" replace /> } />
+        {console.log("soy el isAuth del route", isAuthenticated)}
+          <Route path='/home' element={ isAuthenticated ? <Home /> : <Navigate to="/" replace /> } />
+          {console.log("soy el isAuth del route", isAuthenticated)}
         </Routes>
 
         <Routes>
