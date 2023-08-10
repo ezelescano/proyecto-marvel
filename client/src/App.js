@@ -17,19 +17,18 @@ function App() {
     <Auth0Provider
       domain="dev-xehpsahelqjudav0.us.auth0.com"
       clientId="zzCbQZaV49AKdMv3F47yuGW8HKoQXqjM"
-      redirectUri="http://localhost:3000/home"
+      authorizationParams={{ redirect_uri: 'http://localhost:3000/home/' }}
     >
       <div>
 
         {location.pathname !== "/" && <NavBar />}
         <Routes>
-          <Route exact path='/' element={<Landing />} />
+          <Route exact path='/' element={ <Landing />} />
         </Routes>
 
         <Routes>
-        {/* <Route path='/home' element={<Home />}/> */}
-        {console.log("soy el isAuth del route", isAuthenticated)}
-          <Route path='/home' element={ isAuthenticated ? <Home /> : <Navigate to="/" replace /> } />
+   
+          <Route path='/home' element={  <Home />  } />
           {console.log("soy el isAuth del route", isAuthenticated)}
         </Routes>
 

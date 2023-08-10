@@ -20,6 +20,7 @@ const NavBar = () => {
             <button onClick={() => logout({ logoutParams: { returnTo: "http://localhost:3000" } })}>
       Log Out
     </button>
+            <img src=""
             {location.pathname === "/home" && <Search />}
             {location.pathname !== "/" && <button type="submit" onClick={handlerSubmit} >Reiniciar</button>}
             {location.pathname !== "/home" && <Link to={"/home"}><button>Home</button></Link>}
