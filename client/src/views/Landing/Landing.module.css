@@ -1,0 +1,106 @@
+    @keyframes kenburnsAnimation {
+        0% {
+            transform: scale(1) translate(0, 0);
+            transform-origin: 84% 84%;
+        }
+
+        100% {
+            transform: scale(1.25) translate(20px, 15px);
+            transform-origin: right bottom;
+        }
+    }
+
+    .kenburnsEffect {
+        animation: kenburnsAnimation 5s ease-out both;
+    }
+
+    .backgroundImage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0.9;
+        /* Ajusta la opacidad si es necesario */
+    }
+
+
+
+
+
+    .shake {
+        animation-name: shake;
+        -webkit-animation-name: shake;
+        -moz-animation-name: shake;
+        animation-duration: 1s;
+        -webkit-animation-duration: 1s;
+        -moz-animation-duration: 1s;
+        animation-iteration-count: infinite;
+        -webkit-animation-iteration-count: infinite;
+        -moz-animation-iteration-count: infinite;
+    }
+
+    @keyframes shake {
+        0% {
+            transform: translate(1px, 1px) rotate(0deg);
+        }
+
+        10% {
+            transform: translate(-1px, -2px) rotate(-1deg);
+        }
+
+        20% {
+            transform: translate(-3px, 0px) rotate(1deg);
+        }
+
+        30% {
+            transform: translate(3px, 2px) rotate(0deg);
+        }
+
+        40% {
+            transform: translate(1px, -1px) rotate(1deg);
+        }
+
+        50% {
+            transform: translate(-1px, 2px) rotate(-1deg);
+        }
+
+        60% {
+            transform: translate(-3px, 1px) rotate(0deg);
+        }
+
+        70% {
+            transform: translate(3px, 1px) rotate(-1deg);
+        }
+
+        80% {
+            transform: translate(-1px, -1px) rotate(1deg);
+        }
+
+        90% {
+            transform: translate(1px, 2px) rotate(0deg);
+        }
+
+        100% {
+            transform: translate(1px, -2px) rotate(-1deg);
+        }
+    }
+
+
+    .content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        height: 100%;
+    }
+
+    .landingContainer {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+    }
