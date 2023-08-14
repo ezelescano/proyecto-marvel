@@ -1,0 +1,79 @@
+    @keyframes kenburnsAnimation {
+        0% {
+            transform: scale(1) translate(0, 0);
+            transform-origin: 84% 84%;
+        }
+
+        100% {
+            transform: scale(1.25) translate(20px, 15px);
+            transform-origin: right bottom;
+        }
+    }
+
+    .kenburnsEffect {
+        animation: kenburnsAnimation 5s ease-out both;
+    }
+
+    .backgroundImage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0.9;
+
+    }
+
+
+    .content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 150%;
+
+    }
+
+    .buttonMarvel {
+        display: inline-block;
+        padding: 15px 30px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        color: white;
+        background-color: #ed1d24;
+        border: 2px solid #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+
+    .buttonMarvel:hover {
+        background-color: #fff;
+        color: #ed1d24;
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+
+    .landingContainer {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .iconLanding {
+        position:relative;
+        width: 70px; 
+        height: 70px;
+        z-index: 999;
+    }
+    
+  
+    
