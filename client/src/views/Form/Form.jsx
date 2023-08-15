@@ -1,28 +1,28 @@
 import { useState } from "react";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { createHero } from "../../components/Redux/actions";
 import validate from "./validate";
+import Form from "react-bootstrap/Form"
+import Button from "react-bootstrap/Button"
 
-
-
-const Form = () => {
+const CreateForm = () => {
     const dispatch = useDispatch()
     const [input, setInput] = useState({
         name: "",
         image: "",
         description: ""
     })
-    const [error, setError] = useState({name: ''})
+    const [errors, setErrors] = useState({ name: '' })
 
     const inputHandler = (event) => {
         setInput({
             ...input,
             [event?.target?.name]: event?.target?.value
         });
-        setError(
+        setErrors(
             validate({
                 ...input,
-                [input?.target?.name] : input?.target?.value
+                [event.target.name]: event.target.value
             })
         )
     }
@@ -37,54 +37,45 @@ const Form = () => {
             setInput({
                 name: "",
                 image: "",
-                description:""
+                description: ""
             });
             alert("Heroe Creado!!")
         }
 
     }
     return (
-        <div>
-            <form onSubmit={createSubmit}>
-                <label
-                    htmlFor="name">
-                    Nombre:
-                </label>
-                <input
-                    name="name"
+        <Form >
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                <Form.Label>Nombre: </Form.Label>
+                <Form.Control name="name"
                     type="text"
                     onChange={inputHandler}
                     value={input.name}
                     placeholder="Ejem. Marvel Man" />
-
-                <label
-                    htmlFor="image">
-                    Imagen:
-                </label>
-                <input
-                    type="url"
-                    value={input.image}
+            </Form.Group>
+            {errors.name && <p>{errors.name}</p>}
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                <Form.Label>Imagen: </Form.Label>
+                <Form.Control value={input.image}
                     name="image"
                     onChange={inputHandler}
-                    placeholder="Ejem. http://example.exaple.com/imagen.jpg"
-                    maxLength="100" />
-
-
-                <label
-                    htmlFor="description">
-                    Descripcion:
-                </label>
-                <input
-                    type="text"
+                    maxLength="100"
+                    type="url"
+                    placeholder="Ejem. http://example.exaple.com/imagen.jpg" />
+             {errors.image && <p>{errors.image}</p>}        
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                <Form.Label>Descripcion: </Form.Label>
+                <Form.Control as="textarea"
+                    rows={3}
                     name="description"
                     onChange={inputHandler}
                     value={input.description}
                     placeholder="Ejem. Es un Heroe" />
-
-                <button >Crear</button>
-            </form>
-        </div>
+            </Form.Group>
+            <Button onClick={createSubmit} variant="outline-success">Crear</Button>
+        </Form>
     )
 }
 
-export default Form;
+export default CreateForm;

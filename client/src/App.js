@@ -1,5 +1,5 @@
 import NavBar from './components/NavBar/NavBar';
-import { Detail, Form, Home, Landing, About } from './views';
+import { Detail, CreateForm, Home, Landing, About } from './views';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { Auth0Provider, useAuth0 } from '@auth0/auth0-react';
 
@@ -37,7 +37,7 @@ function App() {
         </Routes>
 
         <Routes>
-          <Route path='/form' element={<Form />} />
+          <Route path='/form' element={<CreateForm />} />
         </Routes>
 
         <Routes>

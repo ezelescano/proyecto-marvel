@@ -1,19 +1,20 @@
 
 
-const validate = (input) => {
-  let error = {}
+export const validate = (input) => {
+  let errors = {}
     if(!input.name) {
-        error.name = "El nombre es requerido";
+        errors.name = "El nombre es requerido";
     }
     if(!input.image) {
-        error.image = "Es requerida la imagen";
+        errors.image = "Es requerida la imagen";
     } else if (
         !/(https:\/\/)([^\s(["<,>/]*)(\/)[^\s[",><]*(.png|.jpg|.svg)(\?[^\s[",><]*)?/.test(
           input.image
         )
       ) {
-        error.image = "An URL of an image is required";
+        errors.image = "Es requerida una URL valida";
       }
+      return errors
 }
 
 export default validate;
