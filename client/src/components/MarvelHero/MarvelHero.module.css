@@ -1,6 +1,32 @@
 .marvelhero {
-    border: 1px solid black;
-    width: fit-content;
+    border: 3px solid rgb(65, 7, 7);
+    background-color: rgb(87, 9, 9);
     border-radius: 10px;
+    margin-bottom: 15px;
+    width: 400px;
+    height: 350px;
+}
+
+.imgmarvelhero {
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-left: 25px;
+    margin-top: 45px;
+    width: 350px; 
+    height: 250px;
+    transition: .5s, color .10s;
+        -webkit-transition: .5s, color .10s;
+        -moz-transition: .5s, color .10s;
+}
+
+.imgmarvelhero:hover{
+    transform: scale3d(1.5, 1.5, 0.3);
+        -webkit-transform: scale3d(1.5, 1.5, 0.3);
+        -moz-transform: scale3d(1.5, 1.5, 0.3);
+}
+              
+.namestyle {
+    margin-left: 150px;
 }
 

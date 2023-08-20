@@ -1,8 +1,7 @@
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import MarvelHero from "../MarvelHero/MarvelHero";
 
-
-const Pagination = () => {
+const PaginationMarvel = () => {
     const { paginationPage, getName, marvelHeros } = useSelector((state) => state);
 
     const lastIndex = paginationPage * 9;
@@ -16,19 +15,18 @@ const Pagination = () => {
     return (
         <>
         
-          {result?.map((hero) => {
-            return <MarvelHero
-            key={hero.id}
-            id= {hero.id}
-            image={hero.image}
-            name= {hero.name}
-            description={hero.description}
-            />
-        })}                                                                                                                                                                                                                                                           
-        
+            {result?.map((hero) => {
+                return <MarvelHero
+                    key={hero.id}
+                    id={hero.id}
+                    image={hero.image}
+                    name={hero.name}
+                    description={hero.description}
+                />
+            })}
         </>
     )
 }
 
 
-export default Pagination;
+export default PaginationMarvel;
