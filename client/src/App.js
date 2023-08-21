@@ -9,7 +9,6 @@ function App() {
   const location = useLocation();
   const { isAuthenticated } = useAuth0();
 
- 
 
     console.log("soy isAuth0", isAuthenticated);
   return (
@@ -22,6 +21,7 @@ function App() {
       <div>
 
         {location.pathname !== "/" && <NavBar />}
+       
         <Routes>
           <Route exact path='/' element={ <Landing />} />
         </Routes>

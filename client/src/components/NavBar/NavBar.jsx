@@ -10,7 +10,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useState } from "react";
-
+import style from "../NavBar/NavBar.module.css"
 
 const NavBar = () => {
 
@@ -38,8 +38,8 @@ const NavBar = () => {
   return (
 
     <>
-      {['xxl'].map((expand) => (
-        <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3">
+      {['xl'].map((expand) => (
+        <Navbar key={expand} expand={expand} className={style.customNavbarStyle} variant="light">
           <Container fluid>
             <Navbar.Brand href="/home">
             <img
@@ -48,8 +48,7 @@ const NavBar = () => {
               width="45"
               height="45"
               className="d-inline-block align-top"
-            />{' '}
-              Proyecto Marvel</Navbar.Brand>
+            /></Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
@@ -64,8 +63,8 @@ const NavBar = () => {
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Nav.Link href="/home">{location.pathname !== "/home" && <Link to={"/home"}><Button variant="light">Inicio</Button></Link>}</Nav.Link>
-                  <Nav.Link href="#action2">{location.pathname !== "/" && <Button variant="light" type="submit" onClick={handlerSubmit} >Reiniciar</Button>}</Nav.Link>
-                  <Nav.Link href="/form">{location.pathname !== "/form" && <Link to={"/form"}><Button variant="light">Crear</Button></Link>}</Nav.Link>
+                  {/* <Nav.Link href="#action2">{location.pathname !== "/" && <Button variant="light" type="submit" onClick={handlerSubmit} >Reiniciar</Button>}</Nav.Link> */}
+                  {/* <Nav.Link href="/form">{location.pathname !== "/form" && <Link to={"/form"}><Button variant="light">Crear</Button></Link>}</Nav.Link> */}
                   <Nav.Link href="/about">{location.pathname !== "/about" && <Link to={"/about"}><Button variant="light">Sobre mi</Button></Link>}</Nav.Link>
                   <Nav.Link ><Button variant="outline-danger" onClick={() => logout({ logoutParams: { returnTo: "http://localhost:3000" } })}>Salir</Button></Nav.Link>
                 </Nav>

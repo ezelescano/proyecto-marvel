@@ -2,14 +2,16 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getByID } from "../../components/Redux/actions";
-
-
+import Image from "react-bootstrap/Image"
+import style from "../Detail/Detail.module.css"
+import Card from "react-bootstrap/Card"
+import Container from "react-bootstrap/Container"
 
 const Detail = () => {
     const { detail } = useSelector((state) => state)
-   
+
     const { id } = useParams();
-   
+
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -17,12 +19,30 @@ const Detail = () => {
     }, [dispatch, id]);
 
     return (
-        <div>
-            <img src={detail?.thumbnail?.path ? `${detail?.thumbnail?.path}.${detail?.thumbnail?.extension}` : detail?.image} alt={detail?.name} />
-
-            <p>Nombre: {detail?.name}</p>
-            <p>Descripcion: {detail?.description}</p>
-        </div>
+        <body>
+            <div >
+                <div className={style.divimagen}>
+                    <Image src={detail?.thumbnail?.path ?
+                        `${detail?.thumbnail?.path}.${detail?.thumbnail?.extension}`
+                        : detail?.image} alt={detail?.name}
+                        thumbnail />
+                </div >
+                <Container className={style.stilocontainer}>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Body>
+                            <Card.Title>{detail?.name}</Card.Title>
+                            <Card.Subtitle 
+                            className="mb-2 text-muted">
+                                Descripcion
+                                F</Card.Subtitle>
+                            <Card.Text>
+                                {detail?.description}
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                </Container>
+            </div>
+        </body>
     )
 }
 
