@@ -20,21 +20,21 @@ const Detail = () => {
 
     return (
         <body>
-            <div >
-                <div className={style.divimagen}>
-                    <Image src={detail?.thumbnail?.path ?
+            <div className={style.divimagen}>
+                <div >
+                    <Image style={{ width: '450px', height: '350px' }} src={detail?.thumbnail?.path ?
                         `${detail?.thumbnail?.path}.${detail?.thumbnail?.extension}`
                         : detail?.image} alt={detail?.name}
                         thumbnail />
                 </div >
-                <Container className={style.stilocontainer}>
+                <Container className={style.divimagen}>
                     <Card style={{ width: '18rem' }}>
                         <Card.Body>
                             <Card.Title>{detail?.name}</Card.Title>
-                            <Card.Subtitle 
-                            className="mb-2 text-muted">
+                            <Card.Subtitle
+                                className="mb-2 text-muted">
                                 Descripcion
-                                F</Card.Subtitle>
+                            </Card.Subtitle>
                             <Card.Text>
                                 {detail?.description}
                             </Card.Text>

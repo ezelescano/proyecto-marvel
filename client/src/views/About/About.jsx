@@ -1,15 +1,20 @@
+import style from "../About/About.module.css"
+
 const About = () => {
-    return(
-        <div>
-              <div >
-        <img src="\assets\eze perfil.jpg" alt="Eze Lescano" />
-      </div>
+  return (
+    <div className={style.divAbout}>
       <div >
-        <h2>DESCRIPCION</h2>
-        <br />
-        <br />
+        <img
+          className={style.imgStyle}
+          src="\assets\eze perfil.jpg"
+          alt="Eze Lescano"
+        />
+      </div>
+      <div className={style.divDescripcion}>
+        <h3>DESCRIPCIóN</h3>
+        
         <div >
-          <p>
+          <p className={style.parafoStyle}>
             <b>Soy Ezequiel </b>
             Durante 11 años trabajé en el sector de transporte público de
             pasajeros, pero sentía que necesitaba un cambio en mi vida. Decidí
@@ -22,7 +27,7 @@ const About = () => {
             en esta carrera que me apasiona.
           </p>
         </div>
-        <div >
+        <div className={style.divIcons} >
           <a href="https://github.com/ezelescano" target="_blank">
             <img src="\assets\github.ico" alt="" />
           </a>
@@ -31,8 +36,8 @@ const About = () => {
           </a>
         </div>
       </div>
-        </div>
-    )
+    </div>
+  )
 }
 
 export default About;
