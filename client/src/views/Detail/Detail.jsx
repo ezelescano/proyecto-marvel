@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getByID } from "../../components/Redux/actions";
@@ -12,15 +12,26 @@ const Detail = () => {
 
     const { id } = useParams();
 
+    const [isLoading, setIsLoading] = useState(true);    
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getByID(id))
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 4000)
     }, [dispatch, id]);
 
     return (
         <body>
-            <div className={style.divimagen}>
+            {isLoading ? (<div className={style.detailStilo}>
+                <img
+                    src="/assets/marvel-logo.gif"
+                    alt="Cargando..."
+                    style={{ width: '400px', height: '200px', borderRadius:'25%' }}
+                />
+                </div>) :
+            (<div className={style.divimagen}>
                 <div >
                     <Image style={{ width: '450px', height: '350px' }} src={detail?.thumbnail?.path ?
                         `${detail?.thumbnail?.path}.${detail?.thumbnail?.extension}`
@@ -41,7 +52,7 @@ const Detail = () => {
                         </Card.Body>
                     </Card>
                 </Container>
-            </div>
+            </div>)}
         </body>
     )
 }
