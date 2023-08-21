@@ -1,4 +1,4 @@
-# proyecto-marvel
+# Proyecto-Marvel
 
 Hola bienvenid@s a Proyecto Marvel. 
 Proyecto Marvel es una SPA que trabaja con la API de https://developer.marvel.com/.
