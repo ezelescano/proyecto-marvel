@@ -2,7 +2,8 @@ import NavBar from './components/NavBar/NavBar';
 import { Detail, CreateForm, Home, Landing, About } from './views';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { Auth0Provider, useAuth0 } from '@auth0/auth0-react';
-
+import axios from 'axios';
+axios.defaults.baseURL='http://localhost:3001'
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
     <Auth0Provider
       domain="dev-xehpsahelqjudav0.us.auth0.com"
       clientId="zzCbQZaV49AKdMv3F47yuGW8HKoQXqjM"
-      authorizationParams={{ redirect_uri: 'http://localhost:3000/home/' }}
+      authorizationParams={{ redirect_uri: `http://localhost:3000/home/` }}
     >
       <div>
 
