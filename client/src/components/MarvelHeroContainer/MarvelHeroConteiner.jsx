@@ -20,9 +20,9 @@ const MarvelHeroConteiner = () => {
     getName.length ? totalPage = 1 : totalPage = Math.ceil(marvelHeros.length / marvelPerPage);
     return (
         <body className={style.bodyfondo}>
-            <div>
+            <div className={style.divdelname}>
 
-                <div className={style.divdelname}>
+                <div >
                     <h1 className={style.nametitle}>Personajes Marvel: </h1>
                 </div>
                 <div className={style.marvelheroconteiner}>
