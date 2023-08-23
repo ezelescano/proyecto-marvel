@@ -18,8 +18,12 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+.divdelname {
+    background-color: rgba(0, 0, 0.5);
+}
 
 .nametitle {
+  
     color: rgb(172, 111, 111);
     font-size: 28px; 
     margin-left: 550px;

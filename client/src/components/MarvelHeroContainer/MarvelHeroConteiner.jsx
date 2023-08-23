@@ -22,7 +22,7 @@ const MarvelHeroConteiner = () => {
         <body className={style.bodyfondo}>
             <div>
 
-                <div>
+                <div className={style.divdelname}>
                     <h1 className={style.nametitle}>Personajes Marvel: </h1>
                 </div>
                 <div className={style.marvelheroconteiner}>
