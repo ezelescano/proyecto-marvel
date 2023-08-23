@@ -66,7 +66,7 @@ const NavBar = () => {
                   {/* <Nav.Link href="#action2">{location.pathname !== "/" && <Button variant="light" type="submit" onClick={handlerSubmit} >Reiniciar</Button>}</Nav.Link> */}
                   {/* <Nav.Link href="/form">{location.pathname !== "/form" && <Link to={"/form"}><Button variant="light">Crear</Button></Link>}</Nav.Link> */}
                   <Nav.Link href="/about">{location.pathname !== "/about" && <Link to={"/about"}><Button variant="light">Sobre mi</Button></Link>}</Nav.Link>
-                  <Nav.Link ><Button variant="outline-danger" onClick={() => logout({ logoutParams: { returnTo: "http://localhost:3000" } })}>Salir</Button></Nav.Link>
+                  <Nav.Link ><Button variant="outline-danger" onClick={() => logout({ logoutParams: { returnTo: "https://proyecto-marvel-six.vercel.app/" } })}>Salir</Button></Nav.Link>
                 </Nav>
                 <Form className="d-flex" >
                   <Form.Control
