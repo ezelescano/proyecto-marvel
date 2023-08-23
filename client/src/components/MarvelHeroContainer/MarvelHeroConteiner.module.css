@@ -1,5 +1,5 @@
 .bodyfondo {
-    background-image: url('/client/public/assets/marvelFondo.jpg'); 
+    background-image: url('/client/public/marvelFondo.jpg'); 
     background-color: rgba(0, 0, 0, 0.5);
     background-blend-mode: multiply;
     background-size: cover; 
