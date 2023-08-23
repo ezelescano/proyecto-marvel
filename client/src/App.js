@@ -17,7 +17,7 @@ function App() {
     <Auth0Provider
       domain="dev-xehpsahelqjudav0.us.auth0.com"
       clientId="zzCbQZaV49AKdMv3F47yuGW8HKoQXqjM"
-      authorizationParams={{ redirect_uri: `http://localhost:3000/home/` }}
+      authorizationParams={{ redirect_uri:  'https://proyecto-marvel-six.vercel.app/home' }}
     >
       <div>
 
