@@ -20,7 +20,7 @@ function App() {
       clientId="zzCbQZaV49AKdMv3F47yuGW8HKoQXqjM"
       authorizationParams={{ redirect_uri: 'https://proyecto-marvel-six.vercel.app/home' }}
     >
-      <body className={style.bodyfondo}>
+      <body  className={style.bodyfondo}>
         <div>
 
           {location.pathname !== "/" && <NavBar />}
