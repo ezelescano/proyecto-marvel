@@ -7,7 +7,6 @@ axios.defaults.baseURL='http://localhost:3001'
 
 
 function App() {
-  const otherUrl = process.env.REACT_APP_OTHER_URL;
   const location = useLocation();
   const { isAuthenticated } = useAuth0();
 
@@ -18,7 +17,7 @@ function App() {
     <Auth0Provider
       domain="dev-xehpsahelqjudav0.us.auth0.com"
       clientId="zzCbQZaV49AKdMv3F47yuGW8HKoQXqjM"
-      authorizationParams={{ redirect_uri: `${otherUrl}/home/` }}
+      authorizationParams={{ redirect_uri: `http://localhost:3000/home/` }}
     >
       <div>
 
