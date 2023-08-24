@@ -1,6 +1,6 @@
 body {
     background-image:url('marvelFondo.jpg');
-    background-color: none;
+    background-color: rgba(255, 0, 0, 0.5);
      background-blend-mode: multiply;
         background-size: cover;
      background-repeat: no-repeat;
