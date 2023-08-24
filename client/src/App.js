@@ -4,7 +4,7 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { Auth0Provider, useAuth0 } from '@auth0/auth0-react';
 import style from './components/MarvelHeroContainer/MarvelHeroConteiner.module.css'
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:3001'
+axios.defaults.baseURL = 'https://proyecto-marvel-production.up.railway.app/'
 import('dotenv').config();
 
 function App() {
