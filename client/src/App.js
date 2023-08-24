@@ -5,7 +5,7 @@ import { Auth0Provider, useAuth0 } from '@auth0/auth0-react';
 import style from './components/MarvelHeroContainer/MarvelHeroConteiner.module.css'
 import axios from 'axios';
 axios.defaults.baseURL = 'https://proyecto-marvel-production.up.railway.app/'
-import('dotenv').config();
+
 
 function App() {
   const location = useLocation();
@@ -16,8 +16,8 @@ function App() {
   return (
 
     <Auth0Provider
-      domain= {process.env.REACT_APP_ISSUERBASEURL}
-      clientId={process.env.REACT_APP_CLIENTID}
+      domain= 'dev-xehpsahelqjudav0.us.auth0.com'
+      clientId='zzCbQZaV49AKdMv3F47yuGW8HKoQXqjM'
       authorizationParams={{ redirect_uri: 'https://proyecto-marvel-six.vercel.app/home' }}
     >
       <body  className={style.bodyfondo}>
