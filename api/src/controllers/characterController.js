@@ -2,13 +2,13 @@ const axios = require("axios");
 const { Marvelhero } = require("../db")
 require('dotenv').config();
 
-const {API_URL} = process.env;
+const {API_URL, TS, LIMIT, API_KEY, HASH} = process.env;
 
 
 // *****************GET ALL CHARACTERS**********************************************//
 
 const getApiCharacters = async () => {
-    const apiData = (await axios.get(API_URL)).data;
+    const apiData = (await axios.get(`${API_URL}&${TS}&${LIMIT}&${API_KEY}&${HASH}`)).data;
     
     const apiFiter = apiData?.data.results.map(hero => ({
         id: hero.id,
@@ -56,7 +56,7 @@ const getCharachterByID = async (id, source) => {
 
         return result;
     } else {
-        const apiData = (await axios.get(API_URL)).data.data.results;
+        const apiData = (await axios.get(`${API_URL}&${TS}&${LIMIT}&${API_KEY}&${HASH}`)).data.data.results;
         const result2 = await apiData?.find((hero) => hero.id == id);
         return result2;
     }
