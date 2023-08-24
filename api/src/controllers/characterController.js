@@ -9,7 +9,7 @@ const {API_URL} = process.env;
 
 const getApiCharacters = async () => {
     const apiData = (await axios.get(API_URL)).data;
-    console.log("soy el apiData", apiData);
+    
     const apiFiter = apiData?.data.results.map(hero => ({
         id: hero.id,
         name: hero.name,
