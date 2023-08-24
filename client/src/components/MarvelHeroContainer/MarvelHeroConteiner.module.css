@@ -1,5 +1,5 @@
 body {
-    background-image:url('/marvelFondo.jpg');
+    background-image:url('marvelFondo.jpg');
     background-color: none;
      background-blend-mode: multiply;
         background-size: cover;
