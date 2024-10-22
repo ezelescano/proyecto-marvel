@@ -8,7 +8,7 @@ const {API_URL, TS, LIMIT, API_KEY, HASH} = process.env;
 // *****************GET ALL CHARACTERS**********************************************//
 
 const getApiCharacters = async () => {
-    const apiData = (await axios.get(`${API_URL}${TS}&${LIMIT}&${API_KEY}&${HASH}`)).data;
+    const apiData = (await axios.get(`${API_URL}&${TS}&${LIMIT}&${API_KEY}&${HASH}`)).data;
     
     const apiFiter = apiData?.data.results.map(hero => ({
         id: hero.id,
